@@ -11,7 +11,13 @@ Preliminary data collection and preparation steps are described in the appendice
 The model fitting for these algorithms is presented in Appendix VI. Based on the results obtained, Random Forests were chosed to further build our prediction model.
 
 # Cross Validation and Expected Out of Sample Error
-We performed a 10-fold cross validation on the training data and report on the out of sample error rate. For our purposes, the errors for the ten individual folds was: 0.002, 0.003, 0.003, 0.002, 0.001, 0.001, 0.001, 0.003, 0.002, 0.002. This averages to: **0.002%**.
+We performed a 10-fold cross validation on the training data and report on the out of sample error rate. 
+```r
+train_control = trainControl(method = "cv", number = 10)
+
+random_forest <- randomForest(classe ~. , data=training, trControl = TC)
+```
+For our purposes, the errors for the ten individual folds was: 0.002, 0.003, 0.003, 0.002, 0.001, 0.001, 0.001, 0.003, 0.002, 0.002. This averages to: **0.002%**.
 
 
 

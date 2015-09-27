@@ -10,6 +10,10 @@ Preliminary data collection and preparation steps are described in the appendice
 
 The model fitting for these algorithms is presented in Appendix VI.
 
+
+# Conclusion
+In this project, a predicting model was created using Random Forests classification method. Our model was considerably accurate **98.9%** with a CI of 98.59% and 99.15%. Our out of sample error rate was: **0.64%**. When our model was applied to the given testing data, we achieved a prediction accuracy of 100% on the 20 problems.
+
 # Appendix I: List of packages used
 library(knitr)
 library(caret)

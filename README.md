@@ -1,4 +1,4 @@
-# PML
+# Practical Machine Learning Project - Weight-Lifting Activity Prediction
 
 # Introduction
 This project aims to predict the activity of subjects wearing activity band devices such as Jawbone Up, Nike FuelBand, and Fitbit. Specifically, we exploit various machine learning algorithms in order to predict subject performing weight-lifting exercises.
@@ -8,9 +8,28 @@ The data utilized consists of accelerometer readings corresponding to six partic
 # Methodology
 Preliminary data collection and preparation steps are described in the appendices, below. We employ four machine learning algorithms on our training data then compare the performance of these algorithms in order to select the best algorithm for this task. For our chosen algorithm, we further perform cross validation and evaluate the out of sample error. The algorithms employed are: 1) Classification Trees; 2) Bootstrap Aggregation; Random Forests; and Boosting.
 
-The model fitting for these algorithms is presented in Appendix VI.
+The model fitting for these algorithms is presented in Appendix VI. Based on the results obtained, Random Forests were chosed to further build our prediction model.
+
+# Cross Validation and Expected Out of Sample Error
+We performed a 10-fold cross validation on the training data and report on the out of sample error rate. For our purposes, the errors for the ten individual folds was: 0.002, 0.003, 0.003, 0.002, 0.001, 0.001, 0.001, 0.003, 0.002, 0.002. This averages to: **0.002%**.
 
 
+
+# Submission
+The following code was used to submit our answers to the automated check site.
+
+```r
+answers <- predict(random_forest_fit, newdata=testing)
+
+pml_write_files = function(x){
+  n = length(x)
+  for(i in 1:n){
+    filename = paste0("problem_id_",i,".txt")
+    write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
+  }
+}
+pml_write_files(answers)
+```
 # Conclusion
 In this project, a predicting model was created using Random Forests classification method. Our model was considerably accurate **98.9%** with a CI of 98.59% and 99.15%. Our out of sample error rate was: **0.64%**. When our model was applied to the given testing data, we achieved a prediction accuracy of 100% on the 20 problems.
 

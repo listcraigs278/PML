@@ -91,7 +91,7 @@ class_tree_fit
 
 class_tree_results<- confusionMatrix(subTesting$classe, predict(class_tree_fit, newdata=subTesting))
 class_tree_results
-```
+
 Confusion Matrix and Statistics
 
           Reference
@@ -123,7 +123,7 @@ Prevalence             0.5115  0.12931  0.26610   0.0000  0.09312
 Detection Rate         0.2539  0.06457  0.09006   0.0000  0.08785
 Detection Prevalence   0.2845  0.19354  0.17434   0.1638  0.18386
 Balanced Accuracy      0.7169  0.67561  0.61180       NA  0.91878
-
+```
 # Bootstrap Aggregating
 ```r
 bootstrap_aggregating_fit<-train(classe ~ ., method="treebag",data=subTraining)
@@ -132,7 +132,7 @@ bootstrap_aggregating_fit
 
 boostrap_results<- confusionMatrix(subTesting$classe, predict(bootstrap_aggregating_fit, newdata=subTesting))
 boostrap_results
-```
+
 Confusion Matrix and Statistics
 
           Reference
@@ -164,7 +164,7 @@ Prevalence             0.2865   0.1917   0.1754   0.1638   0.1827
 Detection Rate         0.2834   0.1893   0.1706   0.1607   0.1818
 Detection Prevalence   0.2845   0.1935   0.1743   0.1638   0.1839
 Balanced Accuracy      0.9939   0.9912   0.9842   0.9888   0.9964
-
+```
 ## Random Forests
 ```r
 random_forest_fit<-train(classe ~ ., method="rf",data=subTraining, prox=TRUE)
@@ -173,7 +173,7 @@ random_forest_fit
 
 random_forest_results<- confusionMatrix(subTesting$classe, predict(random_forest_fit, newdata=subTesting))
 random_forest_results
-```
+
 Confusion Matrix and Statistics
 
           Reference
@@ -205,7 +205,7 @@ Prevalence             0.2862   0.1937   0.1759   0.1611   0.1832
 Detection Rate         0.2843   0.1908   0.1709   0.1597   0.1832
 Detection Prevalence   0.2845   0.1935   0.1743   0.1638   0.1839
 Balanced Accuracy      0.9966   0.9909   0.9839   0.9933   0.9996
-
+```
 ## Boosting
 ```r
 boosting_fit<-train(classe ~ ., method="gbm",data=subTraining, verbose=FALSE)
@@ -214,7 +214,7 @@ boosting_fit
 
 boosting_results<- confusionMatrix(subTesting$classe, predict(boosting_fit, newdata=subTesting))
 boosting_results
-```
+
 Stochastic Gradient Boosting 
 
 13737 samples
@@ -241,4 +241,4 @@ Tuning parameter 'shrinkage' was held constant at a value of 0.1
 Tuning parameter 'n.minobsinnode' was held constant at a value of 10
 Accuracy was used to select the optimal model using  the largest value.
 The final values used for the model were n.trees = 150, interaction.depth = 3, shrinkage = 0.1 and n.minobsinnode = 10.
-
+```
